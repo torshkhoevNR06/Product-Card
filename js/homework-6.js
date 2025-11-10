@@ -50,7 +50,7 @@ const productBasket = ["Мандарин", "Авокадо", "Персик", "Л
 console.log(productBasket);
 
 // №06 Несколько книг по саморазвитий и программированию и небольшая характеристика по ним
-const booksProgramming = [
+const programmingBooks = [
 	{
 		name: 'Атомные привычки',
 		after: 'Джеймс Клир',
@@ -66,7 +66,7 @@ const booksProgramming = [
 		coverType: 'Мягкая (с минималистичным дизайном в чёрно-белых тонах и кодовыми элементами)'
 	}
 ];
-booksProgramming.push(
+programmingBooks.push(
 	{
 		name: 'Программист-прагматик: путь от подмастерья к мастеру',
 		after: 'Эндрю Хант и Дэвид Томас',
@@ -76,7 +76,7 @@ booksProgramming.push(
 	}
 ); 
 
-console.log(booksProgramming);
+console.log(programmingBooks);
 
 // №07 Несколько книг из вселенной "Властелин Колец"
 const booksLordOfTheRings = [
@@ -103,12 +103,12 @@ const booksLordOfTheRings = [
 	},
 ];
 
-const listBook = [...booksProgramming, ...booksLordOfTheRings];
-console.log(listBook);
+const bookList = [...programmingBooks, ...booksLordOfTheRings];
+console.log(bookList);
 
 // №08 Добавление нового свойства и ключа, проверка на кол-во страниц
-	listBook.forEach(book => {
+	bookList.forEach(book => {
 		book.manyPages = book.pages < 350;
 	});
 
-console.log(listBook);
+console.log(bookList);
