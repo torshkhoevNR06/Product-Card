@@ -30,10 +30,8 @@ console.log(purchaseProduct(15));
 const getGreetingTime = currentTime => {
 	if (currentTime >= 6 && currentTime <= 11) {
 		return `Доброе утро!`;
-	
 	} else if (currentTime >= 12 && currentTime <= 17) {
 		return `Добрый день!`;
-	
 	} else {
 		return `Добрый вечер!`;
 	}
