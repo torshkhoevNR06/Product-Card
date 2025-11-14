@@ -12,7 +12,7 @@ const filmsAndBooks = ["Код да Винчи", "Утраченный симв�
 console.log(filmsAndBooks.includes("Война и мир"));
 
 // №03 Перевернуть порядок элементов в массивах
-const getReverseArray = (array) => {
+const getReverseArray = array => {
   return array.reverse();
 }
 
@@ -28,28 +28,19 @@ const filteredEmail = socialMediaComments.filter(comment => comment.email.includ
 console.log(filteredEmail);
 
 // №06 Перебор массивов по условию индекса
-const commentsWithUpdatedPostId = socialMediaComments.map((comment) => {
-  return ({...comment, postId: comment.id <= 5 ? 2 : 1});
-});
+const commentsWithUpdatedPostId = socialMediaComments.map(comment => ({...comment, postId: comment.id <= 5 ? 2 : 1}));
 
 console.log(commentsWithUpdatedPostId);
 
 // №07 Объекты из (id and name)
-const simplifiedComments = socialMediaComments.map(comment => {
-  const id = comment.id;
-  const name = comment.name;
-  return { id, name };
-});
+const simplifiedComments = socialMediaComments.map(comment => { return{ id: comment.id, name: comment.name }});
 
 console.log(simplifiedComments);
 
 // №08 Добавляем новое свойства isInvalid к объектам по условию
-const getLengthString = socialMediaComments.map(comment => {
-  comment.isInvalid = comment.body.length > 180 ? true : false;
-  return {...comment };
-});
+const commentsWithValidation = socialMediaComments.map(comment => ({...comment, isInvalid: comment.body.length > 180}));
 
-console.log(getLengthString);
+console.log({commentsWithValidation});
 
 // №09 Вывод массив почт через (reduce and map)
 const emailsViaReduce = socialMediaComments.reduce((result, comment) => {
@@ -57,9 +48,7 @@ const emailsViaReduce = socialMediaComments.reduce((result, comment) => {
   return result;
 }, []);
 
-const emailsViaMap = socialMediaComments.map((comment) => {
-  return comment.email;
-});
+const emailsViaMap = socialMediaComments.map(comment => comment.email);
 
 console.log(emailsViaReduce);
 console.log(emailsViaMap);
