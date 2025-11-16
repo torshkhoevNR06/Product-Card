@@ -33,14 +33,14 @@ const commentsWithUpdatedPostId = socialMediaComments.map(comment => ({...commen
 console.log(commentsWithUpdatedPostId);
 
 // №07 Объекты из (id and name)
-const simplifiedComments = socialMediaComments.map(comment => { return{ id: comment.id, name: comment.name }});
+const simplifiedComments = socialMediaComments.map(({id, name}) => ({id, name}));
 
 console.log(simplifiedComments);
 
 // №08 Добавляем новое свойства isInvalid к объектам по условию
 const commentsWithValidation = socialMediaComments.map(comment => ({...comment, isInvalid: comment.body.length > 180}));
 
-console.log({commentsWithValidation});
+console.log(commentsWithValidation);
 
 // №09 Вывод массив почт через (reduce and map)
 const emailsViaReduce = socialMediaComments.reduce((result, comment) => {
