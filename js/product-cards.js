@@ -1,64 +1,62 @@
 export const productCards = [
   {
-    image: "image/diamant-serum.png",
-    description: "Для нормальной кожи",
-    title: "Увлажняющий мусс",
-    paragraph: "Глубоко увлажняют кожу лица, оставляя её мягкой и гладкой.",
-    compound: "Состав:",
-    listItem1: "активные натуральные комплексы",
-    listItem2: "витамины С, А, РР, В И Е",
-    listItem3: "солнцезащитные компоненты",
-    priceText: "Цена",
-    priceTag: `2 750 &#x20BD`
+    image: "diamant-serum.png",
+    skinType: "Для нормальной кожи",
+    name: "Увлажняющий мусс",
+    description: "Глубоко увлажняют кожу лица, оставляя её мягкой и гладкой.",
+    compound: [
+      "активные натуральные комплексы",
+      "витамины С, А, РР, В И Е",
+      "солнцезащитные компоненты"
+    ],
+    price: 2750
   },
   {
-    image: "image/moisturizing-mask.png",
-    description: "Для нормальной кожи",
-    title: "Увлажняющая маска",
-    paragraph: "Способствует удерживанию влаги в верхних слоях кожи.",
-    compound: "Состав:",
-    listItem1: "воски",
-    listItem2: "минералы",
-    listItem3: "масла",
-    priceText: "Цена",
-    priceTag: `3 500 &#x20BD`
+    image: "moisturizing-mask.png",
+    skinType: "Для нормальной кожи",
+    name: "Увлажняющая маска",
+    description: "Способствует удерживанию влаги в верхних слоях кожи.",
+    compound: [
+      "воски",
+      "минералы",
+      "масла"
+    ],
+    price: 3500
   },
   {
-    image: "image/cleansing-gel.png",
-    description: "Для нормальной кожи",
-    title: "Гель для умывания",
-    paragraph: "Интенсивно очищает, не повреждает защитный барьер кожи.",
-    compound: "Состав:",
-    listItem1: "минералы",
-    listItem2: "витамины С, А, РР, В И Е",
-    listItem3: "солнцезащитные компоненты",
-    priceText: "Цена",
-    priceTag: `1 650 &#x20BD`
+    image: "cleansing-gel.png",
+    skinType: "Для нормальной кожи",
+    name: "Гель для умывания",
+    description: "Интенсивно очищает, не повреждает защитный барьер кожи.",
+    compound: [
+      "активные натуральные комплексы",
+      "витамины С, А, РР, В И Е",
+      "солнцезащитные компоненты"
+    ],
+    price: 1650
   },
   {
-    image: "image/gift-set1.png",
-    description: "Для нормальной кожи",
-    title: "Подарочный набор №1",
-    paragraph: "Набор, состоящий из увлажняющего крема и маски.",
-    compound: "Состав:",
-    listItem1: "воски",
-    listItem2: "минералы",
-    listItem3: "масла",
-    priceText: "Цена",
-    priceText: "Цена",
-    priceTag: `4 750 &#x20BD`
+    image: "gift-set1.png",
+    skinType: "Для нормальной кожи",
+    name: "Подарочный набор №1",
+    description: "Набор, состоящий из увлажняющего крема и маски.",
+    compound: [
+      "воски",
+      "минералы",
+      "масла"
+    ],
+    price: 4750
   },
   {
-    image: "image/gift-set5.png",
-    description: "Для нормальной кожи",
-    title: "Подарочный набор №5",
-    paragraph: "Весь набор средств Invisible symphony, крем, маска, мусс и гель для умывания.",
-    compound: "Состав:",
-    listItem1: "воски",
-    listItem2: "минералы",
-    listItem3: "масла",
-    priceText: "Цена",
-    priceText: "Цена",
-    priceTag: `7 520 &#x20BD`
+    image: "gift-set5.png",
+    skinType: "Для нормальной кожи",
+    name: "Подарочный набор №5",
+    description: "Весь набор средств Invisible symphony, крем, маска, мусс и гель для умывания.",
+    compound: [
+      "воски",
+      "минералы",
+      "масла"
+    ],
+    price: 7520
   },
 ];
