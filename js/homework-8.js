@@ -32,14 +32,14 @@ const getQuantityCardsByUserInput = () => {
     const templateProductCards = document.getElementById('template-product-cards');
     const containerProductCards = document.querySelector(".container__product-cards");
     const imageBasePath = "image/";
+    const imageType = ".png";
 
     displayProductCards.forEach((card) => {
       const cardClone = templateProductCards.content.cloneNode(true);
-      cardClone.querySelector('.product-cards__image').src = imageBasePath + card.image;
+      cardClone.querySelector('.product-cards__image').src = imageBasePath + card.image + imageType;
       cardClone.querySelector('.product-cards__description-item').textContent = card.skinType;
       cardClone.querySelector('.product-cards__description-title').textContent = card.name;
       cardClone.querySelector('.product-cards__description-paragraph').textContent = card.description;
-      cardClone.querySelector('.product-cards__description-compound').textContent = "Состав:";
 
       const productCompoundList = cardClone.querySelector(".product-cards__description-list");
       card.compound.forEach(item => {

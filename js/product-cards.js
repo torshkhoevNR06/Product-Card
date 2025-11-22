@@ -1,6 +1,6 @@
 export const productCards = [
   {
-    image: "diamant-serum.png",
+    image: "diamant-serum",
     skinType: "Для нормальной кожи",
     name: "Увлажняющий мусс",
     description: "Глубоко увлажняют кожу лица, оставляя её мягкой и гладкой.",
@@ -12,7 +12,7 @@ export const productCards = [
     price: 2750
   },
   {
-    image: "moisturizing-mask.png",
+    image: "moisturizing-mask",
     skinType: "Для нормальной кожи",
     name: "Увлажняющая маска",
     description: "Способствует удерживанию влаги в верхних слоях кожи.",
@@ -24,7 +24,7 @@ export const productCards = [
     price: 3500
   },
   {
-    image: "cleansing-gel.png",
+    image: "cleansing-gel",
     skinType: "Для нормальной кожи",
     name: "Гель для умывания",
     description: "Интенсивно очищает, не повреждает защитный барьер кожи.",
@@ -36,7 +36,7 @@ export const productCards = [
     price: 1650
   },
   {
-    image: "gift-set1.png",
+    image: "gift-set1",
     skinType: "Для нормальной кожи",
     name: "Подарочный набор №1",
     description: "Набор, состоящий из увлажняющего крема и маски.",
@@ -48,7 +48,7 @@ export const productCards = [
     price: 4750
   },
   {
-    image: "gift-set5.png",
+    image: "gift-set5",
     skinType: "Для нормальной кожи",
     name: "Подарочный набор №5",
     description: "Весь набор средств Invisible symphony, крем, маска, мусс и гель для умывания.",
