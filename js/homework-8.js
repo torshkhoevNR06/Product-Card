@@ -1,5 +1,5 @@
 // №01-02 Массив с объектами из 5 карточек и импорт в рабочий файл
-import { productCards } from "./product-cards.js";
+import { productCards } from "./arrays/product-cards.js";
 
 console.log(productCards);
 

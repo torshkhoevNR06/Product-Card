@@ -2,32 +2,17 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-widt initial-scale=1.0">
+  <link rel="stylesheet" href="css/product-cards.css">
   <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/product-card.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Montserrat:itawght@100..900;100..900&display=swap">
   <title>Product Card</title>
 </head>
 <body>
-  <main class="main">
-    <div class="container">
-      <heading class="home-title">
-        <h1 class="product-card__title" id="main-title">Выбери свой продукт</h1>
-      </heading>
-      <div class="product-card__container-buttons">
-        <button class="button__item" id="change-color-all-card">Смена цвета всех карточек</button>
-        <button class="button__item" id="change-color-first-card">Смена цвета одной карточки</button>
-        <button class="button__item" id="open-google">Открыть домашнею страницу Google</button>
-        <button class="button__item" id="output-console-log">Вывести сообщение в консоль лог</button>
-        <button class="button__item" id="color-toggle-btn">Поменять цвет кнопки</button>
-      </div>
-      <div class="container__product-cards"></div>
-    </div>
-  </main>
-
-<template id="template-product-cards">
-  <article class="product-cards__item">
-    <img class="product-cards__image" src="" alt="" width="290px" height="245px">
+  <template id="template-product-cards">
+    <article class="product-cards__item">
+      <img class="product-cards__image" src="" alt="" width="290px" height="245px">
       <div class="product-cards__description">
         <span class="product-cards__description-item"></span>
         <h3 class="product-cards__description-title"></h3>
@@ -40,8 +25,98 @@
         <span class="description-price__tag"></span>
       </div>
     </article>
-</template>
+  </template>
 
-<script type="module" src="js/homework-8.js"></script>
+  <form id="registration-form">
+    <label for="name">Имя:</label>
+    <input placeholder="Введите имя" type="text" name="user-name" required>
+    <label for="surname">Фамилия:</label>
+    <input placeholder="Введите фамилию" type="text" name="user-surname" required>
+    <label for="data">Дата рождения:</label>
+    <input placeholder="Введите дата рождения" type="date" name="user-data" required>
+    <label for="login">Логин:</label>
+    <input placeholder="Введите логин" type="text" name="user-login" required>
+    <label for="passworld">Пароль:</label>
+    <input placeholder="Введите пароль" type="password" id="user-password" name="user-password" required>
+    <label for="repeated-password">Подтвердите пароль:</label>
+    <input placeholder="Пароль" type="password" id="user-repeated-password" name="user-repeated-password"
+      required>
+    <button type="submit" class="registration-btn">Зарегистрироваться</button>
+  </form>
+  
+  <div class="modal">
+    <div class="modal-showed">
+      <form id="authorization-form">
+        <h3 class="authorization-form__title">Авторизация</h3>
+        <label for="user-login-2">Логин:</label>
+        <input placeholder="Введите логин" type="text" class="user-login-2" name="user-login-2" required>
+        <label for="user-password-2">Пароль:</label>
+        <input placeholder="Введите пароль" type="password" class="user-password-2" name="user-password-2" required>
+        <button type="submit" class="login-btn" id="login-btn">Войти</button>
+        <button id="close-btn" class="close-btn">X</button>
+      </form>
+    </div>
+    <div class="overlay"></div>
+  </div>
+
+  <main class="main">
+    <div class="container">
+      <heading class="home-title">
+        <h1 class="product-card__title" id="main-title">Выбери свой продукт</h1>
+      </heading>
+      <div class="product-card__container-buttons">
+        <button class="button__item" id="authentication-open-modal-btn">Аутентификация</button>
+        <button class="button__item" id="change-color-all-card">Смена цвета всех карточек</button>
+        <button class="button__item" id="change-color-first-card">Смена цвета одной карточки</button>
+        <button class="button__item" id="open-google">Открыть домашнею страницу Google</button>
+        <button class="button__item" id="output-console-log">Вывести сообщение в консоль лог</button>
+        <button class="button__item" id="color-toggle-btn">Поменять цвет кнопки</button>
+      </div>
+      <div class="container__product-cards"></div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__contact-info">
+        <div class="contact-info__more-products">
+          <h3 class="more-products__title">Product Cards</h3>
+          <p class="more-products__description">У нас самые лучшие продукты для кожи!</p>
+          <div class="more-products__our-pages">
+            <a href="#!">
+              <img src="image/icons/telegram.svg" alt="Наш телеграмм канал">
+            </a>
+            <a href="#!">
+              <img src="image/icons/vk.svg" alt="Наша страница вконтакте">
+            </a>
+          </div>
+        </div>
+
+        <div class="contact-info__email-form">
+          <label class="email-form__subscription">Подпишись на наши акции:</label>
+          <form id="email-form__sending-mail">
+            <input placeholder="Введи Email..." type="email" name="user-email" required>
+            <button type="submit" class="sending-mail__subscribe-btn">Подписаться</button>
+          </form>
+        </div>
+
+        <div class="contact-info__site-navigation">
+          <span class="site-navigation__text">Быстрые ссылки</span>
+          <nav class="site-navigation__links">
+            <a href="#!" class="link link-main-thing">Главная</a>
+            <a href="#!" class="link link-store">Магазин</a>
+            <a href="#!" class="link link-contact">Контакты</a>
+          </nav>
+        </div>
+      </div>
+
+      <div class="contact-info__emails">
+        <a class="link" href="#!">www.product-cards.com&#169all right reserve</a>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="js/homework-8.js"></script>
+  <script src="js/homework-9.js"></script>
 </body>
 </html>
