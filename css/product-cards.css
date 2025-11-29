@@ -118,8 +118,6 @@ ul li::before {
   vertical-align: middle;
 }
 
-/* ======= form ========== */
-
 #registration-form {
   position: fixed;
   display: flex;
@@ -153,7 +151,6 @@ ul li::before {
 
 .modal {
   position: fixed;
-  display: none;
   align-items: center;
   justify-content: center;
   top: 0;
@@ -183,6 +180,14 @@ ul li::before {
   border-radius: 10px;
   background-color: #3A3A3A;
   z-index: 2;
+}
+
+.open-modal {
+  display: flex;
+}
+
+.close-modal {
+  display: none;
 }
 
 #authorization-form {
@@ -248,8 +253,6 @@ ul li::before {
   color: #ab1010;
   transition: .3s;
 }
-
-/* ======= footer ========== */
 
 .footer__contact-info {
   display: flex;

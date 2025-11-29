@@ -29,22 +29,21 @@
 
   <form id="registration-form">
     <label for="name">Имя:</label>
-    <input placeholder="Введите имя" type="text" name="user-name" required>
+    <input placeholder="Введите имя" type="text" name="userName" required>
     <label for="surname">Фамилия:</label>
-    <input placeholder="Введите фамилию" type="text" name="user-surname" required>
+    <input placeholder="Введите фамилию" type="text" name="userSurname" required>
     <label for="data">Дата рождения:</label>
-    <input placeholder="Введите дата рождения" type="date" name="user-data" required>
+    <input placeholder="Введите дата рождения" type="date" name="userData" required>
     <label for="login">Логин:</label>
-    <input placeholder="Введите логин" type="text" name="user-login" required>
+    <input placeholder="Введите логин" type="text" name="userLogin" required>
     <label for="passworld">Пароль:</label>
-    <input placeholder="Введите пароль" type="password" id="user-password" name="user-password" required>
+    <input placeholder="Введите пароль" type="password" id="user-password" name="userPassword" required>
     <label for="repeated-password">Подтвердите пароль:</label>
-    <input placeholder="Пароль" type="password" id="user-repeated-password" name="user-repeated-password"
-      required>
+    <input placeholder="Пароль" type="password" id="user-repeated-password" name="userRepeatedPassword" required>
     <button type="submit" class="registration-btn">Зарегистрироваться</button>
   </form>
   
-  <div class="modal">
+  <div class="modal close-modal">
     <div class="modal-showed">
       <form id="authorization-form">
         <h3 class="authorization-form__title">Авторизация</h3>
@@ -95,7 +94,7 @@
         <div class="contact-info__email-form">
           <label class="email-form__subscription">Подпишись на наши акции:</label>
           <form id="email-form__sending-mail">
-            <input placeholder="Введи Email..." type="email" name="user-email" required>
+            <input placeholder="Введи Email..." type="email" name="userEmail" required>
             <button type="submit" class="sending-mail__subscribe-btn">Подписаться</button>
           </form>
         </div>
