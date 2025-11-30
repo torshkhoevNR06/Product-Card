@@ -1,6 +1,6 @@
 // №01 Обработка отправки формы электронной почты
-const emailFormSendingMail = document.getElementById("email-form__sending-mail");
-const functionForm = (event, newDate) => {
+const emailForm = document.getElementById("email-form__sending-mail");
+const getDataFromForm = (event, newDate) => {
   event.preventDefault();
   const form = event.target;
   const formData = new FormData(form);
@@ -13,8 +13,8 @@ const functionForm = (event, newDate) => {
   return data;
 }
 
-emailFormSendingMail.addEventListener("submit", event => {
-  console.log(functionForm(event));
+emailForm.addEventListener("submit", event => {
+  console.log(getDataFromForm(event));
 });
 
 // №02 Обработка и отправка формы регистраций | Проверка валидации
@@ -24,8 +24,8 @@ const repeatedPassword = document.getElementById("user-repeated-password");
 
 const registrationForm = document.getElementById("registration-form");
 registrationForm.addEventListener("submit", event => {
-  console.log(functionForm(event, true));
-  registeredUser = functionForm(event, true);
+  console.log(getDataFromForm(event, true));
+  registeredUser = getDataFromForm(event, true);
 });
 
 repeatedPassword.addEventListener("change", () => {
@@ -40,11 +40,12 @@ const authenticationOpenModalBtn = document.getElementById("authentication-open-
 const loginBth = document.getElementById("login-btn");
   
 const manageAuthorizationWindow = () => {
-  authenticationOpenModalBtn.addEventListener('click', () => {
-  modalWindow.classList = "modal open-modal";
+  authenticationOpenModalBtn.addEventListener("click", () => {
+    modalWindow.classList.remove('close-modal');
+    modalWindow.classList.add('open-modal');
   });
 
-  loginBth.addEventListener('click', event => {
+  loginBth.addEventListener("click", event => {
     event.preventDefault();
     const userLogin = document.querySelector('.user-login-2');
     const userPassword = document.querySelector('.user-password-2');
@@ -52,7 +53,8 @@ const manageAuthorizationWindow = () => {
     const userPasswordInput = userPassword.value;
     if (userLoginInput === registeredUser.userLogin && userPasswordInput === registeredUser.userPassword) {
       alert("🎉Вы успешно авторизовались!🎊");
-      modalWindow.classList = 'close-modal';
+      modalWindow.classList.remove('open-modal');
+      modalWindow.classList.add('close-modal');
       console.log(currentUser.lastLogin = new Date());
     } else {
       alert("❌Проверь правильный ли логин и/или пароль, повторите попытку!");
@@ -61,7 +63,8 @@ const manageAuthorizationWindow = () => {
 
   closeBtn.addEventListener("click", event => {
     event.preventDefault();
-    modalWindow.classList = "close-modal";
+    modalWindow.classList.remove('open-modal');
+    modalWindow.classList.add('close-modal');
   });
 }
 
