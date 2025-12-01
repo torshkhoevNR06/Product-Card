@@ -1,5 +1,4 @@
 // №01 Обработка отправки формы электронной почты
-const emailForm = document.getElementById("email-form__sending-mail");
 const getDataFromForm = (event, newDate) => {
   event.preventDefault();
   const form = event.target;
@@ -12,25 +11,39 @@ const getDataFromForm = (event, newDate) => {
   }
   return data;
 }
-
+const emailForm = document.getElementById("email-form__sending-mail");
 emailForm.addEventListener("submit", event => {
   console.log(getDataFromForm(event));
 });
 
 // №02 Обработка и отправка формы регистраций | Проверка валидации
-let registeredUser = {};
+let registeredUser = undefined;
+const registrationForm = document.getElementById("registration-form");
 const password = document.getElementById("user-password");
 const repeatedPassword = document.getElementById("user-repeated-password");
 
-const registrationForm = document.getElementById("registration-form");
-registrationForm.addEventListener("submit", event => {
-  console.log(getDataFromForm(event, true));
-  registeredUser = getDataFromForm(event, true);
-});
+const getComparisonResult = (firstValue, secondValue) => {
+  return firstValue.value !== secondValue.value;
+}
 
-repeatedPassword.addEventListener("change", () => {
-  const argumentResult = password.value !== repeatedPassword.value ? 'Пароли не совпадают.' : '';
-  repeatedPassword.setCustomValidity(argumentResult);
+registrationForm.addEventListener("submit", event => {
+  const passwordComparisonResult = getComparisonResult(password, repeatedPassword);
+
+  password.addEventListener("input", () => {
+    repeatedPassword.setCustomValidity('');
+  });
+  repeatedPassword.addEventListener("input", () => {
+    repeatedPassword.setCustomValidity('');
+  });
+  
+  if (passwordComparisonResult) {
+    event.preventDefault();
+    repeatedPassword.setCustomValidity('Пароли не совпадают.');
+  } else {
+    repeatedPassword.setCustomValidity('');
+    console.log(getDataFromForm(event, true));
+    registeredUser = getDataFromForm(event, true);
+  }
 });
 
 // №03 Реализация модального окна
@@ -49,12 +62,12 @@ const manageAuthorizationWindow = () => {
     event.preventDefault();
     const userLogin = document.querySelector('.user-login-2');
     const userPassword = document.querySelector('.user-password-2');
-    const userLoginInput = userLogin.value;
-    const userPasswordInput = userPassword.value;
-    if (userLoginInput === registeredUser.userLogin && userPasswordInput === registeredUser.userPassword) {
+    const comparisonLoginsAndPasswords = getComparisonResult(userLogin, userPassword);
+    if (!comparisonLoginsAndPasswords) {
       alert("🎉Вы успешно авторизовались!🎊");
       modalWindow.classList.remove('open-modal');
       modalWindow.classList.add('close-modal');
+      currentUser = registeredUser;
       console.log(currentUser.lastLogin = new Date());
     } else {
       alert("❌Проверь правильный ли логин и/или пароль, повторите попытку!");
@@ -71,4 +84,4 @@ const manageAuthorizationWindow = () => {
 manageAuthorizationWindow();
 
 // №04 Информация о последнем входе пользователя после авторизаций
-const currentUser = registeredUser;
+let currentUser = undefined;
