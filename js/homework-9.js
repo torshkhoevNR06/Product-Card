@@ -44,7 +44,7 @@ registrationForm.addEventListener("submit", event => {
 });
 
 // №03 Реализация модального окна 
-// // №04 Информация о последнем входе пользователя после авторизаций
+// №04 Информация о последнем входе пользователя после авторизаций
 let currentUser = undefined;
 const modalWindow = document.querySelector(".modal");
 const closeBtn = document.querySelector(".close-btn");
