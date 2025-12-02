@@ -61,8 +61,9 @@ const manageAuthorizationWindow = () => {
     event.preventDefault();
     const userLogin = document.querySelector('.user-login-2');
     const userPassword = document.querySelector('.user-password-2');
-    const onLoginAndPasswordMatch = areValuesEqual(userLogin.value, userPassword.value);
-    if (onLoginAndPasswordMatch) {
+    const isValuesLoginAndPasswordSame = areValuesEqual(userLogin.value, userPassword.value);
+    const isStoredLoginAndPasswordSame  = areValuesEqual(registeredUser.userLogin, registeredUser.userPassword);
+    if (isValuesLoginAndPasswordSame === isStoredLoginAndPasswordSame) {
       alert("🎉Вы успешно авторизовались!🎊");
       modalWindow.classList.remove('open-modal');
       modalWindow.classList.add('close-modal');
