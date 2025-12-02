@@ -1,6 +1,5 @@
 // №01 Обработка отправки формы электронной почты
 const getDataFromForm = (event, newDate) => {
-  event.preventDefault();
   const form = event.target;
   const formData = new FormData(form);
   const data = Object.fromEntries(formData.entries());
@@ -13,6 +12,7 @@ const getDataFromForm = (event, newDate) => {
 }
 const emailForm = document.getElementById("email-form__sending-mail");
 emailForm.addEventListener("submit", event => {
+  event.preventDefault();
   console.log(getDataFromForm(event));
 });
 
@@ -22,31 +22,30 @@ const registrationForm = document.getElementById("registration-form");
 const password = document.getElementById("user-password");
 const repeatedPassword = document.getElementById("user-repeated-password");
 
-const getComparisonResult = (firstValue, secondValue) => {
-  return firstValue.value !== secondValue.value;
+const areValuesEqual = (firstValue, secondValue) => {
+  return firstValue === secondValue;
 }
 
-registrationForm.addEventListener("submit", event => {
-  const passwordComparisonResult = getComparisonResult(password, repeatedPassword);
-
-  password.addEventListener("input", () => {
-    repeatedPassword.setCustomValidity('');
-  });
-  repeatedPassword.addEventListener("input", () => {
-    repeatedPassword.setCustomValidity('');
-  });
-  
-  if (passwordComparisonResult) {
-    event.preventDefault();
-    repeatedPassword.setCustomValidity('Пароли не совпадают.');
-  } else {
-    repeatedPassword.setCustomValidity('');
-    console.log(getDataFromForm(event, true));
-    registeredUser = getDataFromForm(event, true);
+const validatePasswords = () => {
+  if (password.value && repeatedPassword.value) {
+    const arePasswordsMatch = areValuesEqual(password.value, repeatedPassword.value);
+      if (!arePasswordsMatch) {
+        alert('❌Пароли не совпадают.');
+      }
+    }
   }
+password.addEventListener('change', validatePasswords);
+repeatedPassword.addEventListener('change', validatePasswords);
+
+registrationForm.addEventListener("submit", event => {
+  event.preventDefault();
+  console.log(getDataFromForm(event, true));
+  registeredUser = getDataFromForm(event, true);
 });
 
-// №03 Реализация модального окна
+// №03 Реализация модального окна 
+// // №04 Информация о последнем входе пользователя после авторизаций
+let currentUser = undefined;
 const modalWindow = document.querySelector(".modal");
 const closeBtn = document.querySelector(".close-btn");
 const authenticationOpenModalBtn = document.getElementById("authentication-open-modal-btn");
@@ -62,13 +61,13 @@ const manageAuthorizationWindow = () => {
     event.preventDefault();
     const userLogin = document.querySelector('.user-login-2');
     const userPassword = document.querySelector('.user-password-2');
-    const comparisonLoginsAndPasswords = getComparisonResult(userLogin, userPassword);
-    if (!comparisonLoginsAndPasswords) {
+    const onLoginAndPasswordMatch = areValuesEqual(userLogin.value, userPassword.value);
+    if (onLoginAndPasswordMatch) {
       alert("🎉Вы успешно авторизовались!🎊");
       modalWindow.classList.remove('open-modal');
       modalWindow.classList.add('close-modal');
       currentUser = registeredUser;
-      console.log(currentUser.lastLogin = new Date());
+      console.log(`Время последней авторизаций: ${currentUser.lastLogin = new Date()}`);
     } else {
       alert("❌Проверь правильный ли логин и/или пароль, повторите попытку!");
     }
@@ -82,6 +81,3 @@ const manageAuthorizationWindow = () => {
 }
 
 manageAuthorizationWindow();
-
-// №04 Информация о последнем входе пользователя после авторизаций
-let currentUser = undefined;
