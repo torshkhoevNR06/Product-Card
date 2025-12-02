@@ -27,7 +27,7 @@ const areValuesEqual = (firstValue, secondValue) => {
 }
 
 const validatePasswords = () => {
-  if (password.value && repeatedPassword.value) {
+  if (password.value !== "" && repeatedPassword.value !== "") {
     const arePasswordsMatch = areValuesEqual(password.value, repeatedPassword.value);
       if (!arePasswordsMatch) {
         alert('❌Пароли не совпадают.');
