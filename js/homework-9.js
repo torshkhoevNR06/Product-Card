@@ -1,19 +1,15 @@
 // №01 Обработка отправки формы электронной почты
-const getDataFromForm = (event, newDate) => {
+const getDataForm = (event) => {
   const form = event.target;
   const formData = new FormData(form);
   const data = Object.fromEntries(formData.entries());
-
-  if (newDate) {
-    newDate = new Date();
-    data.createdOn = newDate;
-  }
   return data;
 }
+
 const emailForm = document.getElementById("email-form__sending-mail");
 emailForm.addEventListener("submit", event => {
   event.preventDefault();
-  console.log(getDataFromForm(event));
+  console.log(getDataForm(event));
 });
 
 // №02 Обработка и отправка формы регистраций | Проверка валидации
@@ -22,13 +18,13 @@ const registrationForm = document.getElementById("registration-form");
 const password = document.getElementById("user-password");
 const repeatedPassword = document.getElementById("user-repeated-password");
 
-const areValuesEqual = (firstValue, secondValue) => {
+const getResultValuesComprison = (firstValue, secondValue) => {
   return firstValue === secondValue;
 }
 
 const validatePasswords = () => {
   if (password.value && repeatedPassword.value) {
-    const arePasswordsMatch = areValuesEqual(password.value, repeatedPassword.value);
+    const arePasswordsMatch = getResultValuesComprison(password.value, repeatedPassword.value);
       if (!arePasswordsMatch) {
         alert('❌Пароли не совпадают.');
       }
@@ -39,8 +35,13 @@ repeatedPassword.addEventListener('change', validatePasswords);
 
 registrationForm.addEventListener("submit", event => {
   event.preventDefault();
-  console.log(getDataFromForm(event, true));
-  registeredUser = getDataFromForm(event, true);
+  
+  if (getDataForm) {
+    const newData = getDataForm(event);
+    newData.createdOn = new Date();
+    console.log(newData);
+    registeredUser = newData;
+  }
 });
 
 // №03 Реализация модального окна 
@@ -61,8 +62,8 @@ const manageAuthorizationWindow = () => {
     event.preventDefault();
     const userLogin = document.querySelector('.user-login-2');
     const userPassword = document.querySelector('.user-password-2');
-    const isValuesLoginAndPasswordSame = areValuesEqual(userLogin.value, userPassword.value);
-    const isStoredLoginAndPasswordSame  = areValuesEqual(registeredUser.userLogin, registeredUser.userPassword);
+    const isValuesLoginAndPasswordSame = getResultValuesComprison(userLogin.value, userPassword.value);
+    const isStoredLoginAndPasswordSame  = getResultValuesComprison(registeredUser.userLogin, registeredUser.userPassword);
     if (isValuesLoginAndPasswordSame === isStoredLoginAndPasswordSame) {
       alert("🎉Вы успешно авторизовались!🎊");
       modalWindow.classList.remove('open-modal');
