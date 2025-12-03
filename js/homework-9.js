@@ -52,34 +52,34 @@ const closeBtn = document.querySelector(".close-btn");
 const authenticationOpenModalBtn = document.getElementById("authentication-open-modal-btn");
 const loginBth = document.getElementById("login-btn");
   
-const manageAuthorizationWindow = () => {
-  authenticationOpenModalBtn.addEventListener("click", () => {
-    modalWindow.classList.remove('close-modal');
-    modalWindow.classList.add('open-modal');
+  const manageAuthorizationWindow = () => {
+    authenticationOpenModalBtn.addEventListener("click", () => {
+      modalWindow.classList.remove('close-modal');
+      modalWindow.classList.add('open-modal');
+    });
+  
+  closeBtn.addEventListener("click", event => {
+    event.preventDefault();
+    modalWindow.classList.remove('open-modal');
+    modalWindow.classList.add('close-modal');
   });
 
   loginBth.addEventListener("click", event => {
     event.preventDefault();
     const userLogin = document.querySelector('.user-login-2');
     const userPassword = document.querySelector('.user-password-2');
-    const isValuesLoginAndPasswordSame = getResultValuesComprison(userLogin.value, userPassword.value);
-    const isStoredLoginAndPasswordSame  = getResultValuesComprison(registeredUser.userLogin, registeredUser.userPassword);
-    if (isValuesLoginAndPasswordSame === isStoredLoginAndPasswordSame) {
-      alert("🎉Вы успешно авторизовались!🎊");
-      modalWindow.classList.remove('open-modal');
-      modalWindow.classList.add('close-modal');
-      currentUser = registeredUser;
-      console.log(`Время последней авторизаций: ${currentUser.lastLogin = new Date()}`);
-    } else {
-      alert("❌Проверь правильный ли логин и/или пароль, повторите попытку!");
-    }
-    });
-
-  closeBtn.addEventListener("click", event => {
-    event.preventDefault();
-    modalWindow.classList.remove('open-modal');
-    modalWindow.classList.add('close-modal');
-  });
+    const isPasswordsEqual = getResultValuesComprison(registeredUser.userPassword, userPassword.value);
+    const isLoginsEqual  = getResultValuesComprison(registeredUser.userLogin, userLogin.value);
+      if (isPasswordsEqual && isLoginsEqual) {
+        alert("🎉Вы успешно авторизовались!🎊");
+        modalWindow.classList.remove('open-modal');
+        modalWindow.classList.add('close-modal');
+        currentUser = registeredUser;
+        console.log(`Время последней авторизаций: ${currentUser.lastLogin = new Date()}`);
+      } else {
+        alert("❌Проверь правильный ли логин и/или пароль, повторите попытку!");
+      }
+    })
 }
 
 manageAuthorizationWindow();
