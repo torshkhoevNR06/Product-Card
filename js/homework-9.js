@@ -18,13 +18,13 @@ const registrationForm = document.getElementById("registration-form");
 const password = document.getElementById("user-password");
 const repeatedPassword = document.getElementById("user-repeated-password");
 
-const getResultValuesComprison = (firstValue, secondValue) => {
+const getResultValuesComparison = (firstValue, secondValue) => {
   return firstValue === secondValue;
 }
 
 const validatePasswords = () => {
   if (password.value && repeatedPassword.value) {
-    const arePasswordsMatch = getResultValuesComprison(password.value, repeatedPassword.value);
+    const arePasswordsMatch = getResultValuesComparison(password.value, repeatedPassword.value);
       if (!arePasswordsMatch) {
         alert('❌Пароли не совпадают.');
       }
@@ -36,12 +36,10 @@ repeatedPassword.addEventListener('change', validatePasswords);
 registrationForm.addEventListener("submit", event => {
   event.preventDefault();
   
-  if (getDataForm) {
-    const newData = getDataForm(event);
-    newData.createdOn = new Date();
-    console.log(newData);
-    registeredUser = newData;
-  }
+  const newData = getDataForm(event);
+  newData.createdOn = new Date();
+  console.log(newData);
+  registeredUser = newData;
 });
 
 // №03 Реализация модального окна 
@@ -68,8 +66,8 @@ const loginBth = document.getElementById("login-btn");
     event.preventDefault();
     const userLogin = document.querySelector('.user-login-2');
     const userPassword = document.querySelector('.user-password-2');
-    const isPasswordsEqual = getResultValuesComprison(registeredUser.userPassword, userPassword.value);
-    const isLoginsEqual  = getResultValuesComprison(registeredUser.userLogin, userLogin.value);
+    const isPasswordsEqual = getResultValuesComparison(registeredUser.userPassword, userPassword.value);
+    const isLoginsEqual  = getResultValuesComparison(registeredUser.userLogin, userLogin.value);
       if (isPasswordsEqual && isLoginsEqual) {
         alert("🎉Вы успешно авторизовались!🎊");
         modalWindow.classList.remove('open-modal');
