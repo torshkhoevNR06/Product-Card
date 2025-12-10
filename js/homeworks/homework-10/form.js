@@ -10,16 +10,12 @@ export default class Form {
     data.createdOn = new Date();
     return data;
   };
-
-  isValidity() {
-    return this.form.checkValidity();
+  
+  validityValues(firstValue, secondValue) {
+    return firstValue === secondValue;
   };
 
   isResetValues() {
     return this.form.reset();
   };
-
-  validityValues(firstValue, secondValue) {
-      return firstValue === secondValue;
-    }
 }
