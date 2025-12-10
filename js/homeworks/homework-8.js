@@ -1,5 +1,5 @@
 // №01-02 Массив с объектами из 5 карточек и импорт в рабочий файл
-import { productCards } from "./arrays/product-cards.js";
+import { productCards } from "/js/arrays/product-cards.js";
 
 console.log(productCards);
 
@@ -24,7 +24,7 @@ console.log(productsDescriptionsByTitle);
 
 // №06 Функция, которая отображает кол-во карточек по запросу пользователя
 const getQuantityCardsByUserInput = () => {
-  const userInputResult = prompt("Сколько карточек отобразить? От 1 до 5");
+  const userInputResult = prompt("Сколько карточек отобразить? От 1 до 5", 5);
   const count = Number(userInputResult);
   const displayProductCards = productCards.slice(0, count);
 
