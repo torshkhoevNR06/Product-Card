@@ -86,7 +86,7 @@ registrationForm.form.addEventListener('submit', event => {
   } else {
     const data = registrationForm.getData(event);
     console.log(data);
-    registrationForm.isResetFormValues();
+    registrationForm.resetForm();
     data.createdOn = new Date();
     registeredUser = data;
   }

@@ -10,11 +10,11 @@ export class Form {
     return data;
   };
     
-  isValidityForm() {
+  isValid() {
     return this.form.checkValidity();
   };
   
-  isResetFormValues() {
+  resetForm() {
     this.form.reset();
   };
 

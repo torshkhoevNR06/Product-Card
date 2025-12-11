@@ -14,6 +14,6 @@ export class Plant {
   }
 
   setHeight(height) {
-    return this.height = height;
+    this.height = height;
   }
 }
