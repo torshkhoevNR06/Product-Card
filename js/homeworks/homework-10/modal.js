@@ -1,6 +1,6 @@
-export default class Modal {
+export class Modal {
 	constructor(modal) {
-		this.modal = document.getElementById(`${modal}`);
+		this.modal = document.getElementById(modal);
 	}
 
 	openModal() {
@@ -13,7 +13,7 @@ export default class Modal {
 		this.modal.classList.remove('open-modal');
 	}
 
-	windowCheck() {
+	isOpenModal() {
 		return this.modal.classList.contains('open-modal');
 	}
 }

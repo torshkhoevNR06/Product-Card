@@ -1,21 +1,24 @@
-export default class Form {
+export class Form {
   constructor(form) {
-    this.form = document.getElementById(`${form}`);
+    this.form = document.getElementById(form);
   };
   
   getData(event) {
     this.form = event.target;
     const formData = new FormData(this.form);
     const data = Object.fromEntries(formData.entries());
-    data.createdOn = new Date();
     return data;
   };
+    
+  isValidityForm() {
+    return this.form.checkValidity();
+  };
   
-  validityValues(firstValue, secondValue) {
-    return firstValue === secondValue;
+  isResetFormValues() {
+    this.form.reset();
   };
 
-  isResetValues() {
-    return this.form.reset();
+  isEqualValues(firstValue, secondValue) {
+    return firstValue === secondValue;
   };
 }

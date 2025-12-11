@@ -7,27 +7,36 @@ import "./homeworks/homework-8.js";
 import "./homeworks/homework-9.js";
 import "./homeworks/homework-10/modal.js";
 import "./homeworks/homework-10/form.js";
-
-// №03 Структура классов с наследованием "Растения"
 import { Tree } from "./homeworks/homework-10/plant/tree.js";
 import { Flower } from "./homeworks/homework-10/plant/flower.js";
 import { Bush } from "./homeworks/homework-10/plant/bush.js";
 import { Grass } from "./homeworks/homework-10/plant/grass.js";
+import { Modal } from "./homeworks/homework-10/modal.js";
+import { Form } from "./homeworks/homework-10/form.js";
 
+// №03 Структура классов с наследованием "Растения"
 const tree = new Tree("Tree", 11, 70);
+tree.showInfo("Tree", 11, 70);
 console.log(tree.age, tree.view, tree.height);
+tree.showView('Olive');
 
 const flower = new Flower("Flower", 41, 70);
+flower.showInfo("Flower", 11, 70);
+flower.setHeight(100);
 console.log(flower.age, flower.view, flower.height);
 
 const bush = new Bush("Bush", 23, 70);
+bush.showInfo("Bush", 11, 70);
+bush.setHeight(40);
 console.log(bush.age, bush.view, bush.height);
+console.log(bush.getColor('тёмно-зеленый'));
 
 const grass = new Grass("Grass", 445, 70);
+grass.showInfo("Grass", 11, 70);
+grass.setHeight(45);
 console.log(grass.age, grass.view, grass.height);
 
 // №04 Переписать модальное окно
-import Modal from "./homeworks/homework-10/modal.js";
 const modalWindow = new Modal('modal');
 const loginBth = document.getElementById("login-btn");
 const authenticationOpenModalBtn = document.getElementById("authentication-open-modal-btn");
@@ -49,8 +58,8 @@ closeBtn.addEventListener('click', event => {
 
 loginBth.addEventListener('click', event => {
   event.preventDefault();
-  const isPasswordsEqual = registrationForm.validityValues(registeredUser.userPassword, userPassword.value);
-  const isLoginsEqual = registrationForm.validityValues(registeredUser.userLogin, userLogin.value);
+  const isPasswordsEqual = registrationForm.isEqualValues(registeredUser.userPassword, userPassword.value);
+  const isLoginsEqual = registrationForm.isEqualValues(registeredUser.userLogin, userLogin.value);
   
   if (isPasswordsEqual && isLoginsEqual) {
     alert("🎉Вы успешно авторизовались!🎊");
@@ -63,8 +72,6 @@ loginBth.addEventListener('click', event => {
 });
 
 // №05 Переписать форму регистраций
-import Form from "./homeworks/homework-10/form.js";
-
 const registrationForm = new Form('registration-form');
 const password = document.getElementById("user-password");
 const repeatedPassword = document.getElementById("user-repeated-password");
@@ -72,15 +79,15 @@ let registeredUser = undefined;
 
 registrationForm.form.addEventListener('submit', event => {
   event.preventDefault();
-  const arePasswordsMatch = registrationForm.validityValues(password.value, repeatedPassword.value);
-  console.log(arePasswordsMatch);
+  const arePasswordsMatch = registrationForm.isEqualValues(password.value, repeatedPassword.value);
   
   if (!arePasswordsMatch) {
     alert('❌Пароли не совпадают.');
   } else {
     const data = registrationForm.getData(event);
     console.log(data);
-    registrationForm.isResetValues();
+    registrationForm.isResetFormValues();
+    data.createdOn = new Date();
     registeredUser = data;
   }
 });
