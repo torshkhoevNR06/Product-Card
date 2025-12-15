@@ -30,17 +30,8 @@ const coffee = new Coffee(
 	"сахаром"
 );
 
-console.log(cafe.getInfoCafe());
-
-cafe.orderDrink(cocaCola.getInfo());
-cocaCola.getDrink();
-console.log(cocaCola.presentDrink());
-cocaCola.getTemperature();
-
-cafe.orderDrink(greenTea.getInfo());
-greenTea.getDrink();
-console.log(greenTea.presentDrink());
-
-cafe.orderDrink(coffee.getInfo());
-coffee.getDrink();
-console.log(coffee.presentDrink());
+cafe.getInfoCafe();
+cafe.orderDrink(cocaCola);
+cafe.orderDrink(greenTea);
+cafe.orderDrink(coffee);
+console.log(greenTea.getTemperature())
