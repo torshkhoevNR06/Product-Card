@@ -8,7 +8,7 @@ export class Lemonade extends Drink {
     this.flavorings = flavorings
   };
 
-  prepareDrink() {
+  getPrepareDrink() {
     return `Добавляется ${this.syrup}, смешивается с ${this.sugar}, потом добавляется ${this.acid}, в конец используется ${this.flavorings}, оставляется 5 мин в холодильнике.`;
   };
 }
