@@ -7,7 +7,7 @@ export class Coffee extends Drink {
     this.sugar = sugar;
   };
 
-  getPrepareDrink() {
+  getPreparationDrinkProcess() {
     return `Помол типа зерна - ${this.bean}, соблюдение пропорций кофе и воды, нагрев воды(94-96), настаивания 3-4 мин, добавления типа молока - ${this.milk} и с ${this.sugar}.`;
   };
 }

@@ -8,7 +8,7 @@ export class Tea extends Drink {
     this.boilingPoint = boilingPoint;
   };
 
-  getPrepareDrink() {
+  getPreparationDrinkProcess() {
     return `Ополоснуть заварочную емкость - ${this.water} для прогрева, насыпать порцию - ${this.spoons}, залить - ${this.water} правильной температурой кипения - ${this.boilingPoint}`;
   };
 }

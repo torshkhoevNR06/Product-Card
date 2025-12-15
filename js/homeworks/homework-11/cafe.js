@@ -4,7 +4,7 @@ export class Cafe {
     this.address = address
   };
 
-  infoCafe() {
+  cafeInfo() {
     console.log(`Информация про кафе: Название кафе "${this.name}", его адрес "${this.address}"`);
   };
 
