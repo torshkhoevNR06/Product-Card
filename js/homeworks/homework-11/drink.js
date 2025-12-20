@@ -4,7 +4,11 @@ export class Drink {
     this.name = name;
     this.size = size;
     this.price = price;
-    this.#temperature = undefined
+    this.#temperature = undefined;
+    
+    if (new.target === Drink) {
+      throw new Error("Нельзя создавать экземпляр абстрактного класса Drink");
+    };
   };
 
   getInfo() {

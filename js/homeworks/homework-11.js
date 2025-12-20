@@ -30,7 +30,7 @@ const coffee = new Coffee(
 	"сахаром"
 );
 
-cafe.cafeInfo();
+cafe.showCafeInfo();
 cafe.orderDrink(cocaCola);
 cafe.orderDrink(greenTea);
 cafe.orderDrink(coffee);

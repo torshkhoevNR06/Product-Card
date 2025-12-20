@@ -3,7 +3,7 @@ export class Coffee extends Drink {
   constructor(name, size, price, bean, milk, sugar) {
     super(name, size, price);
     this.bean = bean;
-    this.milk = milk; 
+    this.milk = milk;
     this.sugar = sugar;
   };
 

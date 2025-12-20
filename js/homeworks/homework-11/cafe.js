@@ -10,6 +10,6 @@ export class Cafe {
 
   orderDrink(drink) {
     console.log(`Заказ: "${drink.name}"`);
-    drink.presentDrink(drink.prepareDrink());
+    drink.presentDrink(drink.getPreparationDrinkProcess());
   };
 }
