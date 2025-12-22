@@ -15,7 +15,7 @@ export class Modal {
 	}
 
 	close() {
-		this.#removeEventsListenersBtnAndOverlay();
+		this.#removeCloseListeners();
 		this.modal.classList.remove("modal-showed");
 		this.overlay.classList.remove("overlay-showed");
 	}
@@ -37,7 +37,7 @@ export class Modal {
 		}
 	}
 
-	#removeEventsListenersBtnAndOverlay() {
+	#removeCloseListeners() {
 		this.closeButton.removeEventListener("click", this.closeOverlay);
 		this.overlay.removeEventListener("click", this.closeOverlay);
 	}
